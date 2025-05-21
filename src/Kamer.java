@@ -1,8 +1,4 @@
-public interface Kamer {
-    void betreed(Speler speler);
-}
-
-public abstract class Kamer {
+abstract class Kamer {
     protected String naam;
     protected String omschrijving;
 
@@ -19,18 +15,28 @@ public abstract class Kamer {
         return omschrijving;
     }
 
+    public void beschrijving() {
+        System.out.println("Kamer: " + naam);
+        System.out.println("Omschrijving: " + omschrijving);
+    }
+
     public abstract void betreed(Speler speler);
+    public abstract void voerOpdrachtUit(Speler speler);
 }
 
-public class SprintPlanningKamer extends Kamer {
+class SprintPlanningKamer extends Kamer {
     public SprintPlanningKamer() {
         super("Sprint Planning", "Je moet inschatten welke taken passen binnen een sprint.");
     }
 
     @Override
     public void betreed(Speler speler) {
-        System.out.println("Welkom in de kamer: " + naam);
-        System.out.println(omschrijving);
+        beschrijving(); 
+        voerOpdrachtUit(speler);
+    }
+
+    @Override
+    public void voerOpdrachtUit(Speler speler) {
+        System.out.println("Opdracht: Kies de juiste taken voor de sprint!");
     }
 }
-
