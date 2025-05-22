@@ -5,7 +5,7 @@ public class Game {
         speler = new Speler("Startkamer");
         System.out.println("Welkom bij het Scrum Avontuur!");
         // Voorbeeldkamer laden
-        Kamer kamer = new AlgemeneKamer();
+        Kamer kamer = new Kamer();
         kamer.betreed(speler);
     }
 }
