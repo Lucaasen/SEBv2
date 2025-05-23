@@ -16,5 +16,10 @@ public class Monster {
         System.out.println("💡 Je moet een extra opdracht uitvoeren om het monster te verslaan...");
         System.out.println("✅ Je hebt het monster verslagen!");
     }
+
+    Monster scopeCreep = new Monster("Scope Creep", "Je hebt te veel werk in de sprint gestopt!");
+    Monster vertraging = new Monster("Vertraging", "Iemand is zijn update vergeten!");
 }
+
+
 
