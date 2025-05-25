@@ -4,7 +4,7 @@ public class Game {
     public void start() {
         speler = new Speler("Startkamer");
         System.out.println("Welkom bij het Scrum Avontuur!");
-        Kamer kamer = new Kamer();
+        Kamer kamer = new SprintPlanningKamer(); 
         kamer.betreed(speler);
     }
 }
