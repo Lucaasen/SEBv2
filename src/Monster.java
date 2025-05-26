@@ -7,6 +7,10 @@ public class Monster {
         this.beschrijving = beschrijving;
     }
 
+    public Monster() {
+
+    }
+
     public void verschijn() {
         System.out.println("⚠️ Een monster verschijnt: " + naam);
         System.out.println("Beschrijving: " + beschrijving);
