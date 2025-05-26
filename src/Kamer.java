@@ -50,3 +50,71 @@ class SprintPlanningKamer extends Kamer {
         System.out.println("Opdracht: Kies de juiste taken voor de sprint!");
     }
 }
+
+class DailyScrumKamer extends Kamer {
+    public DailyScrumKamer() {
+        super("Sprint Planning", "Je moet inschatten welke taken passen binnen een sprint.");
+    }
+
+    @Override
+    public void betreed(Speler speler) {
+        beschrijving(); 
+        voerOpdrachtUit(speler);
+    }
+
+    @Override
+    public void voerOpdrachtUit(Speler speler) {
+        System.out.println("Opdracht: Kies de juiste taken voor de sprint!");
+    }
+}
+
+class ScrumBoardKamer extends Kamer {
+      public ScrumBoardKamer() {
+        super("Sprint Planning", "Je moet inschatten welke taken passen binnen een sprint.");
+    }
+
+    @Override
+    public void betreed(Speler speler) {
+        beschrijving(); 
+        voerOpdrachtUit(speler);
+    }
+
+    @Override
+    public void voerOpdrachtUit(Speler speler) {
+        System.out.println("Opdracht: Kies de juiste taken voor de sprint!");
+    }
+}
+
+class SprintReviewKamer extends Kamer {
+      public SprintReviewKamer() {
+        super("Sprint Planning", "Je moet inschatten welke taken passen binnen een sprint.");
+    }
+
+    @Override
+    public void betreed(Speler speler) {
+        beschrijving(); 
+        voerOpdrachtUit(speler);
+    }
+
+    @Override
+    public void voerOpdrachtUit(Speler speler) {
+        System.out.println("Opdracht: Kies de juiste taken voor de sprint!");
+    }
+}
+
+class RetrospectiveKamer extends Kamer {
+    public RetrospectiveKamer() {
+        super("Retrospective", "Reflecteer op de afgelopen sprint.");
+    }
+
+    @Override
+    public void betreed(Speler speler) {
+        beschrijving();
+        voerOpdrachtUit(speler);
+    }
+
+    @Override
+    public void voerOpdrachtUit(Speler speler) {
+        System.out.println("Opdracht: Wat ging goed en wat kan beter?");
+    }
+}
