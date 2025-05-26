@@ -1,15 +1,12 @@
-//bevat gemeenschappelijke logica voor alle kamers
 abstract class Kamer {
-    protected String naam; //kamer naam
-    protected String omschrijving; //beschrijving/opdracht
+    protected String naam;
+    protected String omschrijving;
 
-    //constructor voor de kamer
     public Kamer(String naam, String omschrijving) {
         this.naam = naam;
         this.omschrijving = omschrijving;
     }
 
-    //getters
     public String getNaam() {
         return naam;
     }
@@ -18,35 +15,62 @@ abstract class Kamer {
         return omschrijving;
     }
 
-    //toon de naam en de beschrijving van de kamer
     public void beschrijving() {
         System.out.println("Kamer: " + naam);
         System.out.println("Omschrijving: " + omschrijving);
     }
 
-    //methodes die subklassen moet implementeren
     public abstract void betreed(Speler speler);
     public abstract void voerOpdrachtUit(Speler speler);
 }
 
-//sprint planning kamer
 class SprintPlanningKamer extends Kamer {
-    //constructor stelt naam en opdrachttekst in
     public SprintPlanningKamer() {
         super("Sprint Planning", "Je moet inschatten welke taken passen binnen een sprint.");
     }
 
     @Override
     public void betreed(Speler speler) {
-        //toon de kamerbeschrijving
         beschrijving();
-        //start de opdracht
         voerOpdrachtUit(speler);
     }
 
     @Override
-    //specifieke opdracht voor deze kamer
     public void voerOpdrachtUit(Speler speler) {
         System.out.println("Opdracht: Kies de juiste taken voor de sprint!");
+    }
+}
+
+class DailyScrumKamer extends Kamer {
+    public DailyScrumKamer() {
+        super("Daily Scrum", "Je krijgt een lijst teamleden em je moet aangeven wie welke status-update zou geven.");
+    }
+
+    @Override
+    public void betreed(Speler speler) {
+        beschrijving();
+        voerOpdrachtUit(speler);
+    }
+
+    @Override
+    public void voerOpdrachtUit(Speler speler) {
+        System.out.println("Opdracht: Kies welke teamlid welke status-update zou geven.");
+    }
+}
+
+class ScrumBoard extends Kamer {
+    public ScrumBoard() {
+        super("Scrum Board", "Je krijgt een opdracht om een bord correct in te richten met taken, user stories en epics.");
+    }
+
+    @Override
+    public void betreed(Speler speler) {
+        beschrijving();
+        voerOpdrachtUit(speler);
+    }
+
+    @Override
+    public void voerOpdrachtUit(Speler speler) {
+        System.out.println("Opdracht: Richt de scrumboard correct in met taken, user stories en epics");
     }
 }
