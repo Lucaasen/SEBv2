@@ -1,10 +1,28 @@
+import java.util.Scanner;
+
 public class Speler {
     private String locatie;
     private String status;
+    private String naam;
+    private static Scanner scanner = new Scanner(System.in);
 
     public Speler(String startLocatie) {
         this.locatie = startLocatie;
         this.status = "Beginnend";
+    }
+
+    public void Naam() {
+        vraagNaam();
+    }
+
+    public void vraagNaam(){
+        System.out.print("Vul je naam in: ");
+        this.naam = scanner.nextLine();
+        System.out.println("Je speelt als: "+ this.naam);
+    }
+
+    public void beweeg() {
+        System.out.println("" + locatie);
     }
 
     public String getLocatie() {
