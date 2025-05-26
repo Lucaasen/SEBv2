@@ -1,20 +1,32 @@
-//regelt het spelverloop
+import java.util.Scanner;
+
 public class Game {
-    private Speler speler;  //welke speler actief is
+    private Speler speler;
 
-    //start het spel
     public void start() {
-
-        //nieuwe speler maken, begin in de startkamer
         speler = new Speler("Startkamer");
-
-        //welkomsbericht
         System.out.println("Welkom bij het Scrum Avontuur!");
 
-        // Voorbeeldkamer laden
         Kamer kamer = new AlgemeneKamer();
-
-        //laat de speler de kamer betreden(enter)
         kamer.betreed(speler);
+
+        Scanner scanner = new Scanner(System.in);
+        String input;
+
+        while (true) {
+            System.out.print("> ");
+            input = scanner.nextLine();
+
+            if (input.equalsIgnoreCase("status")) {
+                speler.toonStatus();
+            } else if (input.equalsIgnoreCase("stop")) {
+                System.out.println("Bedankt voor het spelen!");
+                break;
+            } else {
+                System.out.println("Onbekend commando. Typ 'status' of 'stop'.");
+            }
+        }
+
+        scanner.close();
     }
 }
