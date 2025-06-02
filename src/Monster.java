@@ -21,6 +21,7 @@ public class Monster {
         System.out.println("✅ Je hebt het monster verslagen!");
     }
 
+    // \/dit moet nog in een methode/constructor
     Monster scopeCreep = new Monster("Scope Creep", "Je hebt te veel werk in de sprint gestopt!");
     Monster vertraging = new Monster("Vertraging", "Iemand is zijn update vergeten!");
 }
