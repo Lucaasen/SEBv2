@@ -11,7 +11,7 @@ public class Speler {
         this.status = "Beginnend";
     }
 
-    public void Naam() {
+    public void vraagNaamIn() {
         vraagNaam();
     }
 

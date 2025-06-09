@@ -9,7 +9,7 @@ public class Opdracht {
 
         if (!antwoord.equalsIgnoreCase("begeleider van het team")) {
             System.out.println("Fout antwoord!");
-            Monster monster = new Monster();
+            Monster monster = new Monster("ScopeCreep", "Verwarring");
             monster.verschijn();
         } else {
             System.out.println("Correct!");
