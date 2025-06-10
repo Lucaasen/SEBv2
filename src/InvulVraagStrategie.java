@@ -24,10 +24,8 @@ public class InvulVraagStrategie implements OpdrachtStrategie {
     }
 
     @Override
-    public boolean controleerAntwoord() {
-        System.out.print("Jouw antwoord: ");
-        String invoer = scanner.nextLine().trim().toLowerCase();
-        if (invoer.equals(juistAntwoord)) {
+    public boolean controleerAntwoord(String antwoord) {
+        if (antwoord.toLowerCase().equals(juistAntwoord)) {
             return true;
         } else {
             new Monster("Fout antwoord", "Dat klopt niet helemaal.").verschijn();

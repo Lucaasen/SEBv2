@@ -13,7 +13,21 @@ public class PuzzelVraagStrategie implements OpdrachtStrategie {
         System.out.print("Jouw antwoord: ");
         Scanner scanner = new Scanner(System.in);
         String antwoord = scanner.nextLine().trim().toLowerCase();
+        return controleerAntwoord(antwoord);
+    }
+
+    @Override
+    public boolean controleerAntwoord(String antwoord) {
         return antwoord.contains("samenwerking") || antwoord.contains("waarde");
     }
-}
 
+    @Override
+    public void toonResultaat() {
+        // Lege implementatie - wordt waarschijnlijk door Opdracht.java afgehandeld
+    }
+
+    @Override
+    public void geefFeedback() {
+        // Lege implementatie - wordt waarschijnlijk door Opdracht.java afgehandeld
+    }
+}

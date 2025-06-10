@@ -15,6 +15,22 @@ public class MatchVraagStrategie implements OpdrachtStrategie {
         String input = scanner.nextLine().trim().toLowerCase();
         return input.equals("ja");
     }
+
+    @Override
+    public boolean controleerAntwoord(String antwoord) {
+        // Placeholder implementatie - vergelijk met verwacht antwoord
+        return antwoord.equalsIgnoreCase("ja");
+    }
+
+    @Override
+    public void toonResultaat() {
+        // Lege implementatie - wordt waarschijnlijk door Opdracht.java afgehandeld
+    }
+
+    @Override
+    public void geefFeedback() {
+        // Lege implementatie - wordt waarschijnlijk door Opdracht.java afgehandeld
+    }
 }
 
 //        System.out.println("Match de termen met de juiste definities:");
