@@ -20,14 +20,4 @@ public class PuzzelVraagStrategie implements OpdrachtStrategie {
     public boolean controleerAntwoord(String antwoord) {
         return antwoord.contains("samenwerking") || antwoord.contains("waarde");
     }
-
-    @Override
-    public void toonResultaat() {
-        // Lege implementatie - wordt waarschijnlijk door Opdracht.java afgehandeld
-    }
-
-    @Override
-    public void geefFeedback() {
-        // Lege implementatie - wordt waarschijnlijk door Opdracht.java afgehandeld
-    }
 }

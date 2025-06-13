@@ -42,16 +42,6 @@ public class MeerkeuzeVraagStrategie implements OpdrachtStrategie {
     public boolean controleerAntwoord(String antwoord) {
         return antwoord.equalsIgnoreCase(correctAntwoord);
     }
-
-    @Override
-    public void toonResultaat() {
-        // Lege implementatie - wordt waarschijnlijk door Opdracht.java afgehandeld
-    }
-
-    @Override
-    public void geefFeedback() {
-        // Lege implementatie - wordt waarschijnlijk door Opdracht.java afgehandeld
-    }
 }
 
 //import java.util.Scanner;
