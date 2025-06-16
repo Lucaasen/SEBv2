@@ -40,4 +40,8 @@ public class Speler {
     public void setStatus(String status) {
         this.status = status;
     }
+
+    public String getNaam() {
+        return naam;
+    }
 }

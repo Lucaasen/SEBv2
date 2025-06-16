@@ -1,4 +1,5 @@
-import java.util.Scanner;
+
+
 
 abstract class Kamer {
     protected String naam;
@@ -21,6 +22,7 @@ abstract class Kamer {
                 toonResultaat(speler);
                 geefFeedback(speler);
                 voltooid = true;
+                notifyObservers(speler.getNaam() + " heeft de opdracht succesvol voltooid in kamer: " + getNaam());
             } else {
                 System.out.println("Probeer het opnieuw...");
             }
@@ -28,7 +30,6 @@ abstract class Kamer {
             System.out.println("Je hebt deze kamer al voltooid.");
         }
     }
-
 
     public boolean isVoltooid() {
         return voltooid;

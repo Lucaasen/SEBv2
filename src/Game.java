@@ -11,6 +11,7 @@ public class Game {
     public void start() {
         this.speler = new Speler("Startkamer");
         speler.vraagNaamIn();
+        notifyObservers(speler.getNaam() + " heeft het spel gestart.");
         System.out.println("Welkom bij het Scrum Avontuur!");
 
         kamers.add(new SprintPlanningKamer());
@@ -22,6 +23,7 @@ public class Game {
 
         while (huidigeIndex < kamers.size()) {
             Kamer kamer = kamers.get(huidigeIndex);
+            notifyObservers(speler.getNaam() + " betreedt kamer: " + kamer.getNaam());
             kamer.voerOpdrachtUit(speler);
             huidigeIndex++;
 //            Actie();
@@ -75,4 +77,15 @@ public class Game {
         }
     }
 
+    private List<SpelEventObserver> observers = new ArrayList<>();
+    
+    public void addObserver(SpelEventObserver observer) {
+    observers.add(observer);
+    }
+
+    private void notifyObservers(String event) {
+        for (SpelEventObserver obs : observers) {
+            obs.onEvent(event);
+        }
+    }
 }

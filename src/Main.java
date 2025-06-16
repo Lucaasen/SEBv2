@@ -5,8 +5,8 @@ public class Main {
 
         //maak een nieuw Game-object
         Game game = new Game();
+        game.addObserver(new GameLogger());
         //start het spel
         game.start();
-
     }
 }
