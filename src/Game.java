@@ -8,10 +8,10 @@ public class Game {
     private List<Kamer> kamers = new ArrayList<>();
     private int huidigeIndex = 0;
 
-
     public void start() {
         this.speler = new Speler("Startkamer");
         speler.vraagNaamIn();
+        notifyObservers(speler.getNaam() + " heeft het spel gestart.");
         System.out.println("Welkom bij het Scrum Avontuur!");
 
         this.kamers.add(new SprintPlanningKamer());
@@ -26,6 +26,7 @@ public class Game {
 //            Kamer kamer = kamers.get(huidigeIndex);
 //            kamer.voerOpdrachtUit(speler);
 //            huidigeIndex++;
+            notifyObservers(speler.getNaam() + " betreedt kamer: " + kamer.getNaam());
         }
     }
 
@@ -46,10 +47,6 @@ public class Game {
     public void verwerkActie(String actie) {
         Kamer kamer = kamers.get(huidigeIndex);
         switch (actie.toLowerCase()) {
-//            case "beweeg":
-//                speler.setLocatie("DailyScrumKamer"); // voorbeeld
-//                System.out.println("Je beweegt naar: " + speler.getLocatie());
-//                break;
             case "beweeg":
 
                 System.out.println("Je bent in: " + kamer.getClass().getSimpleName());
@@ -87,4 +84,15 @@ public class Game {
         }
     }
 
+    private List<SpelEventObserver> observers = new ArrayList<>();
+
+    public void addObserver(SpelEventObserver observer) {
+    observers.add(observer);
+    }
+
+    private void notifyObservers(String event) {
+        for (SpelEventObserver obs : observers) {
+            obs.onEvent(event);
+        }
+    }
 }
