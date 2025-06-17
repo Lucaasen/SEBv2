@@ -23,11 +23,9 @@ public class PuzzelVraagStrategie implements OpdrachtStrategie {
 
     @Override
     public void toonResultaat() {
-        // Lege implementatie - wordt waarschijnlijk door Opdracht.java afgehandeld
     }
 
     @Override
     public void geefFeedback() {
-        // Lege implementatie - wordt waarschijnlijk door Opdracht.java afgehandeld
     }
 }

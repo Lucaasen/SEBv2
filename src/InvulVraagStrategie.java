@@ -12,7 +12,7 @@ public class InvulVraagStrategie implements OpdrachtStrategie {
 
     @Override
     public boolean voerUit() {
-        System.out.println(vraag);
+//        System.out.println(vraag);
         Scanner scanner = new Scanner(System.in);
         String antwoord = scanner.nextLine().trim().toLowerCase();
         return antwoord.equals(juistAntwoord);

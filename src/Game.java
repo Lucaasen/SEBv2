@@ -8,23 +8,24 @@ public class Game {
     private List<Kamer> kamers = new ArrayList<>();
     private int huidigeIndex = 0;
 
+
     public void start() {
         this.speler = new Speler("Startkamer");
         speler.vraagNaamIn();
         System.out.println("Welkom bij het Scrum Avontuur!");
 
-        kamers.add(new SprintPlanningKamer());
-        kamers.add(new DailyScrumKamer());
-        kamers.add(new ScrumBoardKamer());
-        kamers.add(new SprintReviewKamer());
-        kamers.add(new RetrospectiveKamer());
-        kamers.add(new TIAKamer());
+        this.kamers.add(new SprintPlanningKamer());
+        this.kamers.add(new DailyScrumKamer());
+        this.kamers.add(new ScrumBoardKamer());
+        this.kamers.add(new SprintReviewKamer());
+        this.kamers.add(new RetrospectiveKamer());
+        this.kamers.add(new TIAKamer());
 
         while (huidigeIndex < kamers.size()) {
-            Kamer kamer = kamers.get(huidigeIndex);
-            kamer.voerOpdrachtUit(speler);
-            huidigeIndex++;
-//            Actie();
+            Actie();
+//            Kamer kamer = kamers.get(huidigeIndex);
+//            kamer.voerOpdrachtUit(speler);
+//            huidigeIndex++;
         }
     }
 
@@ -43,14 +44,37 @@ public class Game {
     }
 
     public void verwerkActie(String actie) {
+        Kamer kamer = kamers.get(huidigeIndex);
         switch (actie.toLowerCase()) {
+//            case "beweeg":
+//                speler.setLocatie("DailyScrumKamer"); // voorbeeld
+//                System.out.println("Je beweegt naar: " + speler.getLocatie());
+//                break;
             case "beweeg":
-                speler.setLocatie("DailyScrumKamer"); // voorbeeld
-                System.out.println("Je beweegt naar: " + speler.getLocatie());
+
+                System.out.println("Je bent in: " + kamer.getClass().getSimpleName());
+                System.out.print("Typ 'v' (vorige) of 'n' (volgende): ");
+                String keuze = scanner.nextLine();
+
+                if (keuze.equals("v") && huidigeIndex > 0) {
+                    huidigeIndex--;
+                } else if (keuze.equals("n")) {
+                    if (kamer.isOpdrachtVoltooid()) {
+                        if (huidigeIndex < kamers.size() - 1) huidigeIndex++;
+                        else System.out.println("Laatste kamer bereikt.");
+                    } else {
+                        System.out.println("Eerst opdracht voltooien!");
+                    }
+                } else {
+                    System.out.println("Ongeldige keuze of al aan het begin.");
+                }
+
+                speler.setLocatie(kamers.get(huidigeIndex).getClass().getSimpleName());
                 break;
             case "interacteer":
-                Kamer kamer = bepaalKamer(speler.getLocatie());
+//                Kamer kamer = kamers.get(huidigeIndex);
                 kamer.voerOpdrachtUit(speler);
+//                huidigeIndex++;
                 break;
             case "menu":
                 System.out.println("Toon menu-opties...");
@@ -60,18 +84,6 @@ public class Game {
                 break;
             default:
                 System.out.println("Ongeldige actie.");
-        }
-    }
-    public Kamer bepaalKamer(String locatie) {
-        switch (locatie) {
-            case "Startkamer":
-                return new SprintPlanningKamer();
-            case "DailyScrumKamer":
-                return new DailyScrumKamer();
-            case "ScrumBoardKamer":
-                return new ScrumBoardKamer();
-            default:
-                return new SprintPlanningKamer(); // fallback
         }
     }
 
