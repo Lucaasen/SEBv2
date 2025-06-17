@@ -1,10 +1,22 @@
-import java.util.Scanner;
+import java.util.ArrayList;
+import java.util.List;
 
 abstract class Kamer {
     protected String naam;
     protected String beschrijving;
     private boolean voltooid = false;
     protected OpdrachtStrategie strategie;
+    private List<SpelEventObserver> observers = new ArrayList<>();
+
+    public void addObserver(SpelEventObserver observer) {
+        observers.add(observer);
+    }
+
+    protected void notifyObservers(String event) {
+        for (SpelEventObserver observer : observers) {
+            observer.onEvent(event);
+        }
+    }
 
     //constructor voor de kamer
     public Kamer(String naam, String beschrijving, OpdrachtStrategie strategie) {
@@ -22,7 +34,7 @@ abstract class Kamer {
                 geefFeedback(speler);
                 voltooid = true;
                 setOpdrachtVoltooid(true);
-                notifyObservers(speler.getNaam() + " heeft de opdracht succesvol voltooid in kamer: " + getNaam());
+                notifyObservers(speler.getNaam() + " heeft de kamer succesvol voltooid: " + naam);
             } else {
                 System.out.println("Probeer het opnieuw...");
             }
@@ -58,6 +70,5 @@ abstract class Kamer {
     protected abstract boolean valideerAntwoord(Speler speler);
     protected abstract void toonResultaat(Speler speler);
     protected abstract void geefFeedback(Speler speler);
-
 }
 

@@ -8,5 +8,6 @@ public class Main {
         game.addObserver(new GameLogger());
         //start het spel
         game.start();
+        // Log het moment dat de speler het spel start
     }
 }

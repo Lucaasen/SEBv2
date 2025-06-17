@@ -21,14 +21,12 @@ public class Game {
         this.kamers.add(new RetrospectiveKamer());
         this.kamers.add(new TIAKamer());
 
-        while (huidigeIndex < kamers.size()) {
-            Actie();
-//            Kamer kamer = kamers.get(huidigeIndex);
-//            kamer.voerOpdrachtUit(speler);
-//            huidigeIndex++;
-            notifyObservers(speler.getNaam() + " betreedt kamer: " + kamer.getNaam());
-        }
+    while (huidigeIndex < kamers.size()) {
+        Actie();
+        Kamer kamer = kamers.get(huidigeIndex);
+        notifyObservers(speler.getNaam() + " betreedt kamer: " + kamer.getNaam());
     }
+}
 
     public void Actie() {
         System.out.println("\nWelke actie wil je doen?");
@@ -36,6 +34,7 @@ public class Game {
         String actie = scanner.nextLine();
 
         if (actie.equalsIgnoreCase("exit")) {
+            notifyObservers(speler.getNaam() + " heeft de spel afgesloten.");
             System.out.println("Bedankt voor het spelen! Tot de volgende keer.");
             System.out.println("Afsluiten...");
             System.exit(0);
