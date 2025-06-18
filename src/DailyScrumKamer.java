@@ -1,3 +1,5 @@
+import java.util.Scanner;
+
 public class DailyScrumKamer extends Kamer {
     public DailyScrumKamer() {
         super("Daily Scrum", "Iedere ochtend komt je team bijeen.",
@@ -18,7 +20,19 @@ public class DailyScrumKamer extends Kamer {
     @Override
     protected boolean valideerAntwoord(Speler speler) {
         boolean juist = strategie.voerUit();
-        if (!juist) new Monster("Verwarring", "Zonder duidelijk doel raken teamleden de weg kwijt.").verschijn();
+        if (!juist) {
+            new Monster("Verwarring", "Zonder duidelijk doel raken teamleden de weg kwijt.").verschijn();
+
+            System.out.println("Wil je een hint? (ja/nee): ");
+            Scanner scanner = new Scanner(System.in);
+            String vraag = scanner.nextLine();
+            if(vraag.equalsIgnoreCase("ja")){
+                HintProvider hint = RandomHintSelector.kiesHintProvider();
+                System.out.println(hint.getHint());
+            } else {
+                System.out.println("(nog) niet nodig dus.");
+            }
+        }
         return juist;
     }
 

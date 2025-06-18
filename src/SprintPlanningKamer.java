@@ -1,3 +1,5 @@
+import java.util.Scanner;
+
 public class SprintPlanningKamer extends Kamer {
     public SprintPlanningKamer() {
         super("Sprint Planning", "Welke taken passen in de komende sprint?", new InvulVraagStrategie("Welke taak is geschikt voor de sprint?", "user login implementeren"));
@@ -19,6 +21,16 @@ public class SprintPlanningKamer extends Kamer {
         boolean juist = strategie.voerUit();
         if (!juist) {
             new Monster("Scope Creep", "Je hebt te veel werk of onrealistische taken gekozen.").verschijn();
+
+            System.out.println("Wil je een hint? (ja/nee): ");
+            Scanner scanner = new Scanner(System.in);
+            String vraag = scanner.nextLine();
+            if(vraag.equalsIgnoreCase("ja")){
+                HintProvider hint = RandomHintSelector.kiesHintProvider();
+                System.out.println(hint.getHint());
+            } else {
+                System.out.println("(nog) niet nodig dus.");
+            }
         }
         return juist;
     }

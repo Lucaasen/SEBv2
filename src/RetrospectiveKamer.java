@@ -1,3 +1,5 @@
+import java.util.Scanner;
+
 public class RetrospectiveKamer extends Kamer {
     public RetrospectiveKamer() {
         super("Retrospective", "Even stilstaan bij de samenwerking.",
@@ -18,7 +20,19 @@ public class RetrospectiveKamer extends Kamer {
     @Override
     protected boolean valideerAntwoord(Speler speler) {
         boolean juist = strategie.voerUit();
-        if (!juist) new Monster("Herhaling", "Je blijft dezelfde fouten maken.").verschijn();
+        if (!juist) {
+            new Monster("Herhaling", "Je blijft dezelfde fouten maken.").verschijn();
+
+            System.out.println("Wil je een hint? (ja/nee): ");
+            Scanner scanner = new Scanner(System.in);
+            String vraag = scanner.nextLine();
+            if(vraag.equalsIgnoreCase("ja")){
+                HintProvider hint = RandomHintSelector.kiesHintProvider();
+                System.out.println(hint.getHint());
+            } else {
+                System.out.println("(nog) niet nodig dus.");
+            }
+        }
         return juist;
     }
 

@@ -1,3 +1,5 @@
+import java.util.Scanner;
+
 public class ScrumBoardKamer extends Kamer {
       public ScrumBoardKamer() {
           super("Scrum Board", "Je staat voor een digitaal Scrum board.",
@@ -22,7 +24,19 @@ public class ScrumBoardKamer extends Kamer {
     @Override
     protected boolean valideerAntwoord(Speler speler) {
         boolean juist = strategie.voerUit();
-        if (!juist) new Monster("Chaos", "Je bord is onoverzichtelijk geworden!").verschijn();
+        if (!juist) {
+            new Monster("Chaos", "Je bord is onoverzichtelijk geworden!").verschijn();
+
+            System.out.println("Wil je een hint? (ja/nee): ");
+            Scanner scanner = new Scanner(System.in);
+            String vraag = scanner.nextLine();
+            if(vraag.equalsIgnoreCase("ja")){
+                HintProvider hint = RandomHintSelector.kiesHintProvider();
+                System.out.println(hint.getHint());
+            } else {
+                System.out.println("(nog) niet nodig dus.");
+            }
+        }
         return juist;
     }
 
