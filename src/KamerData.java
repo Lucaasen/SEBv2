@@ -3,6 +3,7 @@ class KamerData {
     private int aantalHints = 0;
     private int aantalFouten = 0;
     private boolean juistBeantwoord = false;
+    private int beurten = 0; 
 
     public KamerData(String kamerNaam) {
         this.kamerNaam = kamerNaam;
@@ -18,6 +19,10 @@ class KamerData {
 
     public void zetJuist(boolean juist) {
         this.juistBeantwoord = juist;
+    }
+
+    public void zetBeurten(int beurten) {
+        this.beurten = beurten;
     }
 
     public String getKamerNaam() {
@@ -36,7 +41,7 @@ class KamerData {
         return juistBeantwoord;
     }
 
-    public void zetBeurten(int beurten) {
-        this.beurten = beurten;
+    public int getBeurten() {
+        return beurten;
     }
 }

@@ -25,6 +25,7 @@ class ExamObserver implements SpelEventObserver {
             int beurten = Integer.parseInt(parts[1]);
             kamerDataMap.get(kamerNaam).zetBeurten(beurten);
         }
+    }
 
 
     public void registreerKamer(String kamerNaam) {
