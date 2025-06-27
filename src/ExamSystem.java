@@ -1,4 +1,4 @@
-class ExamSystem {
+public class ExamSystem {
     private ExamObserver observer;
     private Scanner scanner = new Scanner(System.in);
 
