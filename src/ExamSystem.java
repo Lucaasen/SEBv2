@@ -1,3 +1,5 @@
+import java.util.Scanner;
+
 public class ExamSystem {
     private ExamObserver observer;
     private Scanner scanner = new Scanner(System.in);
@@ -12,10 +14,10 @@ public class ExamSystem {
 
         for (KamerData data : observer.getAlleResultaten()) {
             boolean voldoende = beoordeel(data);
-            System.out.println("Kamer: " + data.naam + " → " + (voldoende ? "Voldoende" : "Onvoldoende"));
-
+            System.out.println("Kamer: " + data.getKamerNaam() + " → " + (voldoende ? "Voldoende" : "Onvoldoende"));
+            
             if (!voldoende) {
-                VervolgVraag vraag = VraagGenerator.genereerVervolgVraag(); // polymorfisme hier
+                VervolgVraag vraag = VraagGenerator.genereerVervolgVraag();
                 vraag.stelVraag();
             } else {
                 voldoendeKamers++;
@@ -26,7 +28,7 @@ public class ExamSystem {
     }
 
     private boolean beoordeel(KamerData data) {
-        return data.goedBeantwoord && data.hintsGebruikt <= 1 && data.pogingen <= 2;
+        return data.isJuistBeantwoord() && data.getAantalHints() <= 1 && data.getBeurten() <= 2;
     }
 
     private void toonEindRapport(int voldoendeKamers) {
