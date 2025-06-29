@@ -72,3 +72,21 @@
 [2025-06-19T12:25:45.056035400] OpblaasKrokodil betreedt kamer: Sprint Planning
 [2025-06-19T12:41:44.035407400] OpblaasKrokodil betreedt kamer: Sprint Planning
 [2025-06-19T12:41:44.789070300] OpblaasKrokodil heeft de spel afgesloten.
+[2025-06-29T18:38:33.159769] Biggest Big Willy heeft het spel gestart.
+[2025-06-29T18:38:40.545593] Biggest Big Willy betreedt kamer: Sprint Planning
+[2025-06-29T18:38:55.268400] Biggest Big Willy betreedt kamer: Sprint Planning
+[2025-06-29T18:39:14.551125500] Biggest Big Willy betreedt kamer: Sprint Planning
+[2025-06-29T18:39:21.173087300] Biggest Big Willy betreedt kamer: Daily Scrum
+[2025-06-29T18:40:13.833252900] Biggest Big Willy betreedt kamer: Daily Scrum
+[2025-06-29T18:40:18.594696700] Biggest Big Willy betreedt kamer: Scrum Board
+[2025-06-29T18:40:29.500829] Biggest Big Willy betreedt kamer: Scrum Board
+[2025-06-29T18:40:35.935142600] Biggest Big Willy betreedt kamer: Sprint Review
+[2025-06-29T18:40:42.475767600] Biggest Big Willy betreedt kamer: Sprint Review
+[2025-06-29T18:40:49.225212900] Biggest Big Willy betreedt kamer: Retrospective
+[2025-06-29T18:41:31.744324600] Biggest Big Willy betreedt kamer: Retrospective
+[2025-06-29T18:41:37.129041100] Biggest Big Willy betreedt kamer: Scrum Pilaren
+[2025-06-29T18:42:21.154356300] Biggest Big Willy betreedt kamer: Scrum Pilaren
+[2025-06-29T18:42:25.887147600] Biggest Big Willy betreedt kamer: Scrum Pilaren
+[2025-06-29T18:42:30.753405] Biggest Big Willy betreedt kamer: Scrum Pilaren
+[2025-06-29T18:43:47.638520800] Biggest Big Willy betreedt kamer: Scrum Pilaren
+[2025-06-29T18:43:49.925683400] Biggest Big Willy heeft de spel afgesloten.
