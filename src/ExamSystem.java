@@ -32,7 +32,8 @@ public class ExamSystem {
     }
 
     private void toonEindRapport(int voldoendeKamers) {
-        double cijfer = (voldoendeKamers / 6.0) * 10;
+        int totalKamers = 6;
+        double cijfer = (voldoendeKamers / totalKamers) * 10;
         System.out.printf("Je eindcijfer is een %.1f\n", cijfer);
     }
 }

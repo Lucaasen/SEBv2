@@ -22,11 +22,18 @@ public class Game {
         this.kamers.add(new TIAKamer());
 
     while (huidigeIndex < kamers.size()) {
-        Actie();
         Kamer kamer = kamers.get(huidigeIndex);
         notifyObservers(speler.getNaam() + " betreedt kamer: " + kamer.getNaam());
+
+        Actie();
     }
+
+        System.out.println("Je hebt alle kamers voltooid!");
+        notifyObservers("SPEL_VOLTOOID");
 }
+
+ 
+ 
 
     public void Actie() {
         System.out.println("\nWelke actie wil je doen?");
@@ -80,6 +87,14 @@ public class Game {
                 break;
             default:
                 System.out.println("Ongeldige actie.");
+        }
+
+        boolean alleKamersVoltooid = kamers.stream().allMatch(Kamer::isOpdrachtVoltooid);
+        
+        if (alleKamersVoltooid) {
+            notifyObservers("SPEL_VOLTOOID");
+            System.out.println("Je hebt alle kamers voltooid!");
+            huidigeIndex = kamers.size(); 
         }
     }
 
